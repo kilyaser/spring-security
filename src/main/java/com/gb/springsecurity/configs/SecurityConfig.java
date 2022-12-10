@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/auth_page/**").authenticated()
                 .requestMatchers("/user_info").authenticated()
+                .requestMatchers("/user_info").hasAuthority("READ_ONLY")
                 .requestMatchers("/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .anyRequest().permitAll()
                 .and()
