@@ -4,23 +4,17 @@ import com.gb.springsecurity.entities.User;
 import com.gb.springsecurity.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class DemoController {
     private final UserService userService;
 
-    @GetMapping("/")
-    public String homePage() {
-        return "home";
-    }
-    @GetMapping("/unsecured")
-    public String usecuredPage() {
-        return "unsecured";
-    }
     @GetMapping("/auth_page")
     public String authenticatedPage() {
         return "authenticated";
